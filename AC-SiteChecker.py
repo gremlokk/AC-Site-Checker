@@ -57,8 +57,7 @@ def check_if_url_is_Americommerce_site(url=""):
     else: #returns redirects
         print("Not Americommerce site: " + url)
         return "Not Americommerce"
-    
-    
+   
     return '-1'
 
 
@@ -109,14 +108,6 @@ def process_file():
     except Exception:
         print ("Unexpected error:", sys.exc_info()[0])
         sys.exit(0)
-        
-
-def add_domains():
-    with open(output_file, 'w',  newline='') as output_csvfile:
-        r = csv.reader(output_csvfile)
-        new_row = r.next()
-        new_row.append('Domain')
-        
         
          
 def main():
