@@ -20,14 +20,12 @@ session.max_redirects = 20
 output_file = "Not_On_Americommerce.csv"
 
 def clean_url(url):
-
     parsed_uri = urlparse(url)
     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
 
     return domain
 
 def create_output_file():
-
     try:
         with open(output_file,"r") as file:
             print ("File exists")
@@ -37,16 +35,13 @@ def create_output_file():
             print ("File created")
             
 
-def append_sitemonitor_page_to_url(url):
-    
+def append_sitemonitor_page_to_url(url):    
     if not url.endswith('/'):
         return url+'/store/sitemonitor.aspx'
     else:
         return url+'store/sitemonitor.aspx'
     
 def check_if_url_is_Americommerce_site(url=""): 
-
-    #Requests can also ignore verifying the SSL certficate if you set  verify to False.
     html_doc = requests.get(url,verify=False, timeout=20) #checks url
     text = html_doc.text #returns html/text of page
 
@@ -62,7 +57,6 @@ def check_if_url_is_Americommerce_site(url=""):
 
 
 def check_for_redirects(url):  
-
     try:
         return check_if_url_is_Americommerce_site(url)
     
